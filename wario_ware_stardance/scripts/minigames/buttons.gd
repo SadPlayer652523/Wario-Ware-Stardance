@@ -9,4 +9,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
+	Global.buttons_pressed += 1
 	hide()

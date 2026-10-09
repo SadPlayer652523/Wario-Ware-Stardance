@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://du51i3log3f8q"]
+
+[ext_resource type="Texture2D" uid="uid://barfjjknmmb8y" path="res://assets/title_scenes/WarioWare.jpeg" id="1_7avge"]
+[ext_resource type="Script" uid="uid://i7lybd5xjcx7" path="res://scripts/done_screen.gd" id="1_uqm27"]
+
+[node name="Done Screen" type="Node2D" unique_id=791677522]
+script = ExtResource("1_uqm27")
+
+[node name="Background" type="TextureRect" parent="." unique_id=178123815]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_7avge")
+expand_mode = 1
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1186825742]
+clip_contents = false
+offset_right = 1152.0
+offset_bottom = 350.0
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 108
+text = "You did it! :D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=297013291]
+offset_top = 488.0
+offset_right = 1152.0
+offset_bottom = 547.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "0:00.00"
+horizontal_alignment = 1
