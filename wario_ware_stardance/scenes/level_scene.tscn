@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dq73hos1bvkoi"]
+
+[ext_resource type="Script" uid="uid://c7xn8mdpfp25r" path="res://scripts/intermission.gd" id="1_83l6l"]
+[ext_resource type="Texture2D" uid="uid://barfjjknmmb8y" path="res://assets/title_scenes/WarioWare.jpeg" id="1_my0do"]
+[ext_resource type="Texture2D" uid="uid://bs4ev52ew1tgx" path="res://icon.svg" id="2_83l6l"]
+
+[node name="LevelScene" type="Node2D" unique_id=642586462]
+script = ExtResource("1_83l6l")
+
+[node name="Background" type="TextureRect" parent="." unique_id=135386535]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_my0do")
+expand_mode = 1
+
+[node name="GarlicContainer" type="HBoxContainer" parent="." unique_id=1315720302]
+offset_left = 251.0
+offset_top = 126.0
+offset_right = 907.0
+offset_bottom = 254.0
+
+[node name="Garlic" type="TextureRect" parent="GarlicContainer" unique_id=1909720926]
+layout_mode = 2
+texture = ExtResource("2_83l6l")
+
+[node name="Garlic2" type="TextureRect" parent="GarlicContainer" unique_id=1105797982]
+layout_mode = 2
+texture = ExtResource("2_83l6l")
+
+[node name="Garlic3" type="TextureRect" parent="GarlicContainer" unique_id=951633491]
+layout_mode = 2
+texture = ExtResource("2_83l6l")
+
+[node name="Garlic4" type="TextureRect" parent="GarlicContainer" unique_id=1924444068]
+layout_mode = 2
+texture = ExtResource("2_83l6l")
+
+[node name="Garlic5" type="TextureRect" parent="GarlicContainer" unique_id=1788094813]
+layout_mode = 2
+texture = ExtResource("2_83l6l")
+
+[node name="Level" type="RichTextLabel" parent="." unique_id=1530585109]
+offset_top = 368.0
+offset_right = 1152.0
+offset_bottom = 438.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "Level #"
+horizontal_alignment = 1
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=953983502]
+offset_top = 488.0
+offset_right = 1152.0
+offset_bottom = 547.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "0.0"
+horizontal_alignment = 1

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ce1opf6hk2h3u"]
+
+[ext_resource type="Script" uid="uid://hn7u1udum8y1" path="res://scripts/player.gd" id="1_ldeu4"]
+[ext_resource type="Texture2D" uid="uid://dx5sgkyiephr2" path="res://assets/character/jog_3.png" id="1_plyga"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lfkbx"]
+radius = 50.039986
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aui74"]
+radius = 50.01
+
+[node name="Player" type="CharacterBody2D" unique_id=1334793950]
+script = ExtResource("1_ldeu4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1563026854]
+texture_filter = 1
+position = Vector2(2, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("1_plyga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1148659371]
+shape = SubResource("CircleShape2D_lfkbx")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=7789331]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=509656111]
+shape = SubResource("CircleShape2D_aui74")

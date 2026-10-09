@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1t6meo0lnyqv"]
 
 [ext_resource type="Script" uid="uid://bsevfcp2ty7j7" path="res://scripts/title_screen/main_menu.gd" id="1_0hhsm"]
-[ext_resource type="Texture2D" uid="uid://barfjjknmmb8y" path="res://assets/title_scenes/thumb-1920-1305909.jpeg" id="1_legup"]
+[ext_resource type="Texture2D" uid="uid://barfjjknmmb8y" path="res://assets/title_scenes/WarioWare.jpeg" id="2_0hhsm"]
 
 [node name="Main Menu" type="Node2D" unique_id=43257519]
 script = ExtResource("1_0hhsm")
@@ -9,7 +9,7 @@ script = ExtResource("1_0hhsm")
 [node name="Background" type="TextureRect" parent="." unique_id=33979674]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_legup")
+texture = ExtResource("2_0hhsm")
 expand_mode = 1
 
 [node name="Title" type="RichTextLabel" parent="." unique_id=1676894214]
