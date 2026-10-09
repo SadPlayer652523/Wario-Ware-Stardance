@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	timer.text = str(snapped(time, 0.10)) # this makes names easier
+	timer.text = "0:0" + str(snapped(time, 0.01)) # this makes names easier
 
 func Timer(start_time: float): # making a new function for timer countdown!
 	# we want the timer to go down, and when it reaches 0 it transitions 
@@ -19,10 +19,10 @@ func Timer(start_time: float): # making a new function for timer countdown!
 	time = start_time
 
 	while time > 0.0: # run if timer hasnt reached 0
-		await wait(0.10)
-		time = time - 0.10
+		await wait(0.01)
+		time = time - 0.01
 	#when timer reaches 0
-	return
+	get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
 
 func wait(seconds: float) -> void: # write this simple function out for wait!
 	await get_tree().create_timer(seconds).timeout # makes u wait

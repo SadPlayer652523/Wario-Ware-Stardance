@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgktktpypomol"]
 
 [ext_resource type="Texture2D" uid="uid://bvavega1cf44g" path="res://assets/background/thumb-1920-1305909.jpeg" id="1_pvrh4"]
-[ext_resource type="Script" uid="uid://dnvpb7y3vsa35" path="res://scripts/minigames.gd" id="1_us5cv"]
+[ext_resource type="Script" uid="uid://dnvpb7y3vsa35" path="res://scripts/minigames/minigame_1.gd" id="1_us5cv"]
 [ext_resource type="PackedScene" uid="uid://ce1opf6hk2h3u" path="res://scenes/players/player.tscn" id="2_24viy"]
 [ext_resource type="Texture2D" uid="uid://bs4ev52ew1tgx" path="res://icon.svg" id="3_slo3g"]
 [ext_resource type="Script" uid="uid://c35ticf8si4g1" path="res://scripts/objects/garlic.gd" id="4_bafk0"]
@@ -257,4 +257,4 @@ position = Vector2(64.066, 64.066)
 shape = SubResource("RectangleShape2D_bafk0")
 
 [node name="ThemedTimer" parent="." unique_id=1833627 instance=ExtResource("5_8cxkw")]
-position = Vector2(1030, 26)
+position = Vector2(987, 23)

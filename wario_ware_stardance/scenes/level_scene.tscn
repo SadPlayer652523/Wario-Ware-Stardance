@@ -54,5 +54,5 @@ offset_right = 1152.0
 offset_bottom = 547.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 42
-text = "0.0"
+text = "0:00.00"
 horizontal_alignment = 1
