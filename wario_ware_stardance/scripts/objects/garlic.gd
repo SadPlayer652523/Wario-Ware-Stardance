@@ -3,9 +3,9 @@
 # errors related to variable that haven't been defined yet in later scripts 
 
 extends Node2D
-@onready var player: CharacterBody2D = $"../Player" # grabs the parent node
+@onready var player: CharacterBody2D = $"../Sonic" # grabs the parent node
 @onready var self_area = $Area2D
-@onready var player_area = $"../Player/Area2D"
+@onready var player_area = $"../Sonic/Area2D"
 
 # make a signal
 signal garlic_collected

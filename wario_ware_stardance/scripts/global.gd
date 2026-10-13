@@ -8,4 +8,4 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	pass
+	print("minigames done: " + str(minigames_done) + " | lives: " + str(lives))

@@ -26,7 +26,6 @@ func _process(delta: float) -> void: # runs EVERY FRAME
 	match Global.lives: # asks or checks if lives is equal to one of 
 #these values, cool hack. by the way this is a horrid way to illustrate the 
 #lives visually so later you can always find alternative code. Now, dw abt it.
-
 		4:
 			garlic.hide()
 		3:

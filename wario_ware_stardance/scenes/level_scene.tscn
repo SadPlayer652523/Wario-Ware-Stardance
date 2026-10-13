@@ -18,6 +18,7 @@ offset_left = 251.0
 offset_top = 126.0
 offset_right = 907.0
 offset_bottom = 254.0
+alignment = 1
 
 [node name="Garlic" type="TextureRect" parent="GarlicContainer" unique_id=1909720926]
 layout_mode = 2

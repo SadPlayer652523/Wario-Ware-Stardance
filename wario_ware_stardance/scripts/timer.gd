@@ -22,6 +22,7 @@ func Timer(start_time: float): # making a new function for timer countdown!
 		await wait(0.01)
 		time = time - 0.01
 	#when timer reaches 0
+	Global.lives -= 1
 	get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
 
 func wait(seconds: float) -> void: # write this simple function out for wait!
