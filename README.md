@@ -1,5 +1,13 @@
-WarioWare-style game for Stardance
+### WarioWare-style game for Stardance
 
-Only 2 minigames. A Win screen. For testing purposes.
+### Changelog for v0.1:
 
-Never touching this ever again
+- Initial pre-release
+- 2 working minigames: Platformer and Aim Clicker.
+
+
+### Changelog for v0.2:
+
+- Removed Animations in Minigame 1
+- Added Minigame 3: Clicker.
+- Improved Minigame 1
