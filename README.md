@@ -1,4 +1,4 @@
-### WarioWare-style game for Stardance
+# WarioWare-style game for Stardance
 
 ## Changelog for v0.1:
 
