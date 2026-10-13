@@ -10,7 +10,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	timer.text = "0:0" + str(snapped(time, 0.01)) # this makes names easier
+	if time < 10.0:
+		timer.text = "0:0" + str(snapped(time, 0.01))
+	else:
+		timer.text = "0:" + str(snapped(time, 0.01))
 
 func Timer(start_time: float): # making a new function for timer countdown!
 	# we want the timer to go down, and when it reaches 0 it transitions 

@@ -1,3 +1,54 @@
 [gd_scene format=3 uid="uid://bo37llu0cqw6"]
 
+[ext_resource type="Script" uid="uid://b7a8ao4ucv8rn" path="res://scripts/minigames/minigame_3.gd" id="1_mrrul"]
+[ext_resource type="Texture2D" uid="uid://bvavega1cf44g" path="res://assets/background/thumb-1920-1305909.jpeg" id="2_16sb4"]
+[ext_resource type="Texture2D" uid="uid://bs4ev52ew1tgx" path="res://icon.svg" id="3_1tyev"]
+[ext_resource type="PackedScene" uid="uid://dq74ksac70pt2" path="res://scenes/timer.tscn" id="4_16sb4"]
+
 [node name="Minigame3" type="Node2D" unique_id=1782554013]
+script = ExtResource("1_mrrul")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1274964335]
+repeat_size = Vector2(1059.275, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="Background" type="TextureRect" parent="Parallax2D" unique_id=475757245]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_16sb4")
+expand_mode = 1
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=435674082]
+clip_contents = false
+offset_right = 1152.0
+offset_bottom = 247.0
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 96
+text = "Click!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Clicker" type="TextureButton" parent="." unique_id=1978595814]
+offset_left = 514.0
+offset_top = 296.0
+offset_right = 642.0
+offset_bottom = 424.0
+texture_normal = ExtResource("3_1tyev")
+
+[node name="Counter" type="RichTextLabel" parent="." unique_id=719655814]
+clip_contents = false
+offset_left = 579.0
+offset_top = 260.0
+offset_right = 695.0
+offset_bottom = 277.0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 52
+text = "0"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThemedTimer" parent="." unique_id=1833627 instance=ExtResource("4_16sb4")]
+position = Vector2(986, 20)
+
+[connection signal="pressed" from="Clicker" to="." method="_on_clicker_pressed"]
