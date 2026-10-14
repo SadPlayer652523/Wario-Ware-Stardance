@@ -15,18 +15,18 @@ func _process(delta: float) -> void:
 	else:
 		timer.text = "0:" + str(snapped(time, 0.01))
 
-func Timer(start_time: float): # making a new function for timer countdown!
-	# we want the timer to go down, and when it reaches 0 it transitions 
-	# to the next scene!
+func Timer(start_time: float):
+	if Global.timer_ticking:
+		time = start_time
 
-	time = start_time
+		while time > 0.0 and Global.timer_ticking: # run if timer hasnt reached 0
+			await wait(0.01)
+			time = time - 0.01
+		Global.lives -= 1
+		Global.minigames_done -= 1
+		if Global.timer_ticking:
+			get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
 
-	while time > 0.0: # run if timer hasnt reached 0
-		await wait(0.01)
-		time = time - 0.01
-	#when timer reaches 0
-	Global.lives -= 1
-	get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
-
-func wait(seconds: float) -> void: # write this simple function out for wait!
-	await get_tree().create_timer(seconds).timeout # makes u wait
+func wait(seconds: float) -> void:
+	if Global.timer_ticking:
+		await get_tree().create_timer(seconds).timeout # makes u wait

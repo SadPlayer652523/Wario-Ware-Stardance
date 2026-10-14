@@ -6,21 +6,11 @@ extends Node2D
 @onready var player: CharacterBody2D = $"../Sonic" # grabs the parent node
 @onready var self_area = $Area2D
 @onready var player_area = $"../Sonic/Area2D"
-
-# make a signal
-signal garlic_collected
+@onready var minigame_1: Node2D = $".."
 
 func _process(delta: float) -> void: # this runs EVERY FRAME! 
 	
 	if player_area.overlaps_area(self_area): # checks if overlapping
 		if self.visible:
-			emit_signal("garlic_collected") #signal broadcast
+			minigame_1.garlic_collect()
 			self.hide() #removed from player sight; collected
-		
-
-# Because you're emitting a signal here, you need to connect that signal to 
-# something to actually make it do a function. To do that, go to the
-# `Signals` menu next to the inspector tab and double click it. 
-# You would then need to connect it to the parent script or scene script
-# and also name it something. You can name it ` garlic_collect` as seen 
-# below, in the next script.

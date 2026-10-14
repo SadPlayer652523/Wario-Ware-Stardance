@@ -314,6 +314,7 @@ func sprite_play(new_anim: String):
 		sprite.frame = current_frame
 		
 func die():
+	Global.timer_ticking = false
 	sprite.rotation_degrees = 0
 	if !dead:
 		dead = true
@@ -326,9 +327,13 @@ func die():
 		move_and_slide()
 		set_collision_layer_value(1, false)
 		set_collision_mask_value(1, false)
-		await get_tree().create_timer(1.5).timeout
-		get_tree().reload_current_scene()
-
+		set_collision_layer_value(2, false)
+		set_collision_mask_value(2, false)
+		Global.lives -= 1
+		Global.minigames_done -= 1
+		await get_tree().create_timer(1.5, true).timeout
+		get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
+	
 func _on_sprite_frame_changed() -> void:
 	if !sprite:
 		return # safety check

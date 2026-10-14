@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://mpaysy825bmd"]
+
+[ext_resource type="Script" uid="uid://ch4dk6knfb3ow" path="res://scripts/death_screen.gd" id="1_dwo6e"]
+[ext_resource type="Texture2D" uid="uid://barfjjknmmb8y" path="res://assets/title_scenes/WarioWare.jpeg" id="1_uyutr"]
+
+[node name="Death Screen" type="Node2D" unique_id=1943109950]
+script = ExtResource("1_dwo6e")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1607736109]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_uyutr")
+expand_mode = 1
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=626310681]
+clip_contents = false
+offset_right = 1152.0
+offset_bottom = 350.0
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 108
+text = "You Died! :("
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=351193553]
+offset_top = 488.0
+offset_right = 1152.0
+offset_bottom = 547.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "0:00.00"
+horizontal_alignment = 1

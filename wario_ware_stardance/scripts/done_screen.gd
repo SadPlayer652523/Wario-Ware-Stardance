@@ -2,14 +2,14 @@ extends Node2D
 
 @onready var timer: RichTextLabel = $Timer
 
-var time
+var time : float
 
 func _ready() -> void:
-	await Timer(3.0)
+	await Timer(2.0)
 	get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
 
 func _process(delta: float) -> void:
-	timer.text = "0:0" + str(snapped(time, 0.01))
+	timer.text = "0:0" + "%0.2f" % time
 
 func Timer(start_time: float):
 	

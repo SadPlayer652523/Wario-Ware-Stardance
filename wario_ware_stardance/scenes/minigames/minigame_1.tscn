@@ -1086,6 +1086,12 @@ size = Vector2(17.19298, 33.684196)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bafk0"]
 size = Vector2(127.878, 127.878)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1xta"]
+size = Vector2(1, 551)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1q3t"]
+size = Vector2(1154, 1)
+
 [node name="Minigame 1" type="Node2D" unique_id=2143363454]
 script = ExtResource("1_us5cv")
 
@@ -1290,6 +1296,21 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Garlic3/Area2D" unique_id=2013533892]
 position = Vector2(64.066, 64.066)
 shape = SubResource("RectangleShape2D_bafk0")
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=2049463672]
+position = Vector2(-672, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=1837443361]
+position = Vector2(671.5, 71.5)
+shape = SubResource("RectangleShape2D_h1xta")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collision" unique_id=1267160154]
+position = Vector2(1824.5, 71.5)
+shape = SubResource("RectangleShape2D_h1xta")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collision" unique_id=1647349393]
+position = Vector2(1248, -204.5)
+shape = SubResource("RectangleShape2D_o1q3t")
 
 [node name="ThemedTimer" parent="." unique_id=1833627 instance=ExtResource("5_8cxkw")]
 position = Vector2(987, 23)
