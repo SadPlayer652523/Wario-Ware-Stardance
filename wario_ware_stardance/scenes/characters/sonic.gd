@@ -58,6 +58,7 @@ var dead = false
 var debug_mode = false
 
 func _physics_process(delta: float) -> void:
+	Global.sonic_dead = dead
 	if !debug_mode:
 		if !dead:
 			set_collision_layer_value(1, true)
@@ -318,6 +319,7 @@ func die():
 	sprite.rotation_degrees = 0
 	if !dead:
 		dead = true
+		Global.sonic_dead = true
 		sprite.rotation_degrees = 0
 		tricking_right_glow.play("off")
 		set_process_input(false)
@@ -327,8 +329,6 @@ func die():
 		move_and_slide()
 		set_collision_layer_value(1, false)
 		set_collision_mask_value(1, false)
-		set_collision_layer_value(2, false)
-		set_collision_mask_value(2, false)
 		Global.lives -= 1
 		Global.minigames_done -= 1
 		await get_tree().create_timer(1.5, true).timeout

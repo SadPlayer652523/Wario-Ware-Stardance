@@ -1,16 +1,19 @@
 extends Node
 
-var minigames_done = 0
-var lives = 5
+var minigames_done = 3
+var lives = 1
 var buttons_pressed = 0
 var timer_ticking = true
+var sonic_dead = false
 
 func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
 	#print(str(minigames_done) + " " + str(lives))
-	if lives < 1:
+	if lives == 0:
+		if sonic_dead:
+			await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 		lives = 5
 		minigames_done = 0

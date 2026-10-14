@@ -12,13 +12,14 @@ func _process(delta: float) -> void:
 	timer.text = "0:0" + "%0.2f" % time
 
 func Timer(start_time: float):
+	if !Global.sonic_dead:
+		time = start_time
 	
-	time = start_time
-	
-	while time > 0.0:
-		await wait(0.01)
-		time -= 0.01
-	return
+		while time > 0.0:
+			await wait(0.01)
+			time -= 0.01
+		return
 
 func wait(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout
+	if !Global.sonic_dead:
+		await get_tree().create_timer(seconds).timeout
