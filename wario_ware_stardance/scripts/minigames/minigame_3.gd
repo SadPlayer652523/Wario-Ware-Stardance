@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	counter.text = str(pressed)
 	
-	if pressed == 101:
+	if pressed == 100:
 		get_tree().change_scene_to_file("res://scenes/done_screen.tscn")
 		
 	if timer_end:
