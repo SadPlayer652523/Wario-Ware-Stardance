@@ -6,7 +6,10 @@ var time : float
 
 func _ready() -> void:
 	await Timer(2.0)
-	get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
+	if Global.minigames_done < 4:
+		get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
+	elif !Global.sonic_dead:
+		get_tree().change_scene_to_file("res://scenes/title_scenes/main_menu.tscn")
 
 func _process(delta: float) -> void:
 	timer.text = "0:0" + "%0.2f" % time

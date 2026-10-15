@@ -12,19 +12,22 @@ extends Node2D
 var time
 
 func _ready() -> void:
-	await Timer(3.0) # using the function created
-	
-	if Global.minigames_done < 5:
+	if !Global.sonic_dead and Global.minigames_done > 3:
+		await Timer(0.1)
+	else:
+		await Timer(3.0)
+	if Global.minigames_done < 4:
 		Global.minigames_done = Global.minigames_done + 1
 		get_tree().change_scene_to_file("res://scenes/minigames/minigame_" + str(Global.minigames_done) + ".tscn")
 	else:
-		get_tree().change_scene_to_file("res://scenes/title_scenes/main_menu.tscn") # changes your scene
+		if !Global.sonic_dead:
+			get_tree().change_scene_to_file("res://scenes/done_screen.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/minigames/minigame_4.tscn")
 	Global.timer_ticking = true
 
-func _process(delta: float) -> void: # runs EVERY FRAME
-	match Global.lives: # asks or checks if lives is equal to one of 
-#these values, cool hack. by the way this is a horrid way to illustrate the 
-#lives visually so later you can always find alternative code. Now, dw abt it.
+func _process(delta: float) -> void:
+	match Global.lives:
 		4:
 			garlic.hide()
 		3:
@@ -43,7 +46,10 @@ func _process(delta: float) -> void: # runs EVERY FRAME
 			garlic_container.hide() # just hides everything
 	
 	timer.text = "0:0" + "%0.2f" % time
-	level.text = "Level " + str(Global.minigames_done + 1)
+	if Global.minigames_done < 4:
+		level.text = "Level " + str(Global.minigames_done + 1)
+	else:
+		level.text = "Level 4"
 
 func Timer(start_time: float):
 	

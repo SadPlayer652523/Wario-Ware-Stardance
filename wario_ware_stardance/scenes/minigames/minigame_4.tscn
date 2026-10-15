@@ -34,9 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://dq74ksac70pt2" path="res://scenes/timer.tscn" id="31_itboe"]
 [ext_resource type="Script" uid="uid://cjl6ipnxogjkq" path="res://scripts/killzone.gd" id="33_aplm0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x77cm"]
-size = Vector2(1152, 97)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3o1va"]
 atlas = ExtResource("3_711bu")
 region = Rect2(0, 0, 33, 37)
@@ -1085,6 +1082,9 @@ size = Vector2(1, 551)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txxu2"]
 size = Vector2(1154, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x77cm"]
+size = Vector2(1152, 97)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
 size = Vector2(51, 52)
 
@@ -1100,22 +1100,6 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_p538x")
 expand_mode = 1
-
-[node name="Platform1" type="StaticBody2D" parent="." unique_id=998206773]
-position = Vector2(0, 648)
-
-[node name="ColorRect" type="ColorRect" parent="Platform1" unique_id=1376976562]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -97.0
-offset_right = 1152.0
-grow_vertical = 0
-color = Color(1, 1, 0.17254902, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=57325836]
-position = Vector2(576, -48.5)
-shape = SubResource("RectangleShape2D_x77cm")
 
 [node name="Sonic" type="CharacterBody2D" parent="." unique_id=830396648]
 position = Vector2(577, 501)
@@ -1206,35 +1190,634 @@ shape = SubResource("RectangleShape2D_txxu2")
 [node name="ThemedTimer" parent="." unique_id=1833627 instance=ExtResource("31_itboe")]
 position = Vector2(987, 23)
 
-[node name="Hazard" type="RigidBody2D" parent="." unique_id=1584321663]
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=998206773]
+position = Vector2(0, 648)
 
-[node name="ColorRect" type="ColorRect" parent="Hazard" unique_id=1803183614]
+[node name="ColorRect" type="ColorRect" parent="Platform1" unique_id=1376976562]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -97.0
+offset_right = 1152.0
+grow_vertical = 0
+color = Color(1, 1, 0.17254902, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=57325836]
+position = Vector2(576, -48.5)
+shape = SubResource("RectangleShape2D_x77cm")
+
+[node name="Hazards" type="Node" parent="." unique_id=436427393]
+
+[node name="Hazard" type="RigidBody2D" parent="Hazards" unique_id=1584321663]
+position = Vector2(208, -217)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard" unique_id=1803183614]
 offset_right = 51.0
 offset_bottom = 52.0
 color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Area2D" type="Area2D" parent="Hazard" unique_id=1346370702]
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard" unique_id=1346370702]
 script = ExtResource("33_aplm0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard/Area2D" unique_id=1121470827]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard/Area2D" unique_id=1121470827]
 position = Vector2(25.5, 26)
 shape = SubResource("RectangleShape2D_lfkbx")
 
-[node name="Hazard2" type="RigidBody2D" parent="." unique_id=1034953333]
-position = Vector2(544, 0)
+[node name="Hazard2" type="RigidBody2D" parent="Hazards" unique_id=1034953333]
+position = Vector2(816, -456)
+gravity_scale = 0.6
 
-[node name="ColorRect" type="ColorRect" parent="Hazard2" unique_id=2073714919]
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard2" unique_id=2073714919]
 offset_right = 51.0
 offset_bottom = 52.0
 color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Area2D" type="Area2D" parent="Hazard2" unique_id=1026993334]
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard2" unique_id=1026993334]
 script = ExtResource("33_aplm0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard2/Area2D" unique_id=199954244]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard2/Area2D" unique_id=199954244]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard3" type="RigidBody2D" parent="Hazards" unique_id=853834887]
+position = Vector2(440, -496)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard3" unique_id=1481933845]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard3" unique_id=466506742]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard3/Area2D" unique_id=79211172]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard4" type="RigidBody2D" parent="Hazards" unique_id=150908248]
+position = Vector2(568, -784)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard4" unique_id=1982132589]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard4" unique_id=1802901657]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard4/Area2D" unique_id=931930346]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard5" type="RigidBody2D" parent="Hazards" unique_id=997456201]
+position = Vector2(1000, -784)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard5" unique_id=1798620081]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard5" unique_id=984882224]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard5/Area2D" unique_id=1321034832]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard6" type="RigidBody2D" parent="Hazards" unique_id=1727909158]
+position = Vector2(1000, -368)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard6" unique_id=1159045744]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard6" unique_id=660705957]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard6/Area2D" unique_id=188792308]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard7" type="RigidBody2D" parent="Hazards" unique_id=1366453038]
+position = Vector2(440, -160)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard7" unique_id=1049751206]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard7" unique_id=376144578]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard7/Area2D" unique_id=1039914851]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard8" type="RigidBody2D" parent="Hazards" unique_id=532207681]
+position = Vector2(248, -792)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard8" unique_id=1537112326]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard8" unique_id=738859086]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard8/Area2D" unique_id=792243010]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard10" type="RigidBody2D" parent="Hazards" unique_id=1640446595]
+position = Vector2(208, -929)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard10" unique_id=183861002]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard10" unique_id=2036978800]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard10/Area2D" unique_id=628200314]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard11" type="RigidBody2D" parent="Hazards" unique_id=1266797906]
+position = Vector2(816, -1168)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard11" unique_id=1335624905]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard11" unique_id=1884547300]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard11/Area2D" unique_id=944185100]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard12" type="RigidBody2D" parent="Hazards" unique_id=2051845264]
+position = Vector2(440, -1208)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard12" unique_id=1131700345]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard12" unique_id=957993288]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard12/Area2D" unique_id=774600981]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard13" type="RigidBody2D" parent="Hazards" unique_id=1540278400]
+position = Vector2(483, -1569)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard13" unique_id=1344317730]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard13" unique_id=1727564915]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard13/Area2D" unique_id=1453901259]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard14" type="RigidBody2D" parent="Hazards" unique_id=832338798]
+position = Vector2(880, -1376)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard14" unique_id=214185216]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard14" unique_id=1460335095]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard14/Area2D" unique_id=131943838]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard15" type="RigidBody2D" parent="Hazards" unique_id=643625450]
+position = Vector2(792, -1392)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard15" unique_id=442328803]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard15" unique_id=1879700450]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard15/Area2D" unique_id=68453705]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard16" type="RigidBody2D" parent="Hazards" unique_id=267497686]
+position = Vector2(440, -872)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard16" unique_id=1591946925]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard16" unique_id=956772987]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard16/Area2D" unique_id=1190737509]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard17" type="RigidBody2D" parent="Hazards" unique_id=175539306]
+position = Vector2(128, -1384)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard17" unique_id=587938787]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard17" unique_id=1892356918]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard17/Area2D" unique_id=887047689]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard18" type="RigidBody2D" parent="Hazards" unique_id=1931356470]
+position = Vector2(976, -1000)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard18" unique_id=1057609535]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard18" unique_id=1117945014]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard18/Area2D" unique_id=329470909]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard19" type="RigidBody2D" parent="Hazards" unique_id=188210835]
+position = Vector2(208, -1545)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard19" unique_id=225224101]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard19" unique_id=988121166]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard19/Area2D" unique_id=1021430499]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard20" type="RigidBody2D" parent="Hazards" unique_id=155323160]
+position = Vector2(816, -1784)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard20" unique_id=750116033]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard20" unique_id=619700382]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard20/Area2D" unique_id=2093906580]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard21" type="RigidBody2D" parent="Hazards" unique_id=2070247388]
+position = Vector2(440, -1824)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard21" unique_id=771004571]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard21" unique_id=1665636787]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard21/Area2D" unique_id=2091127226]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard22" type="RigidBody2D" parent="Hazards" unique_id=1131036734]
+position = Vector2(568, -2112)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard22" unique_id=1660474505]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard22" unique_id=1066434481]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard22/Area2D" unique_id=1759019320]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard23" type="RigidBody2D" parent="Hazards" unique_id=1499545189]
+position = Vector2(1000, -2112)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard23" unique_id=433815855]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard23" unique_id=1855329217]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard23/Area2D" unique_id=181151979]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard24" type="RigidBody2D" parent="Hazards" unique_id=1088795475]
+position = Vector2(1000, -1696)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard24" unique_id=587009748]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard24" unique_id=488079718]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard24/Area2D" unique_id=96268495]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard25" type="RigidBody2D" parent="Hazards" unique_id=48499686]
+position = Vector2(440, -1488)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard25" unique_id=1440906973]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard25" unique_id=625688739]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard25/Area2D" unique_id=2110430186]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard26" type="RigidBody2D" parent="Hazards" unique_id=532641477]
+position = Vector2(248, -2120)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard26" unique_id=247436867]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard26" unique_id=1186553751]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard26/Area2D" unique_id=2100723615]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard28" type="RigidBody2D" parent="Hazards" unique_id=1691500477]
+position = Vector2(208, -2257)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard28" unique_id=572632471]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard28" unique_id=1721524371]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard28/Area2D" unique_id=1215267119]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard29" type="RigidBody2D" parent="Hazards" unique_id=1862516028]
+position = Vector2(816, -2496)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard29" unique_id=137179626]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard29" unique_id=334718845]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard29/Area2D" unique_id=1236989763]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard30" type="RigidBody2D" parent="Hazards" unique_id=1629288960]
+position = Vector2(440, -2536)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard30" unique_id=578565489]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard30" unique_id=430164383]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard30/Area2D" unique_id=1616822354]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard31" type="RigidBody2D" parent="Hazards" unique_id=313329955]
+position = Vector2(448, -2704)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard31" unique_id=610726090]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard31" unique_id=1225358192]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard31/Area2D" unique_id=1213295161]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard32" type="RigidBody2D" parent="Hazards" unique_id=1845450711]
+position = Vector2(880, -2704)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard32" unique_id=1582963948]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard32" unique_id=1693511482]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard32/Area2D" unique_id=1941347857]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard33" type="RigidBody2D" parent="Hazards" unique_id=740465988]
+position = Vector2(792, -2720)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard33" unique_id=2107432028]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard33" unique_id=1472801801]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard33/Area2D" unique_id=67524389]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard34" type="RigidBody2D" parent="Hazards" unique_id=1622031590]
+position = Vector2(440, -2200)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard34" unique_id=94510734]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard34" unique_id=22697697]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard34/Area2D" unique_id=148004734]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard35" type="RigidBody2D" parent="Hazards" unique_id=1960936360]
+position = Vector2(128, -2712)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard35" unique_id=1000030942]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard35" unique_id=1459679008]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard35/Area2D" unique_id=448538615]
+position = Vector2(25.5, 26)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Hazard36" type="RigidBody2D" parent="Hazards" unique_id=1886822967]
+position = Vector2(976, -2328)
+gravity_scale = 0.6
+
+[node name="ColorRect" type="ColorRect" parent="Hazards/Hazard36" unique_id=1718826098]
+offset_right = 51.0
+offset_bottom = 52.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazards/Hazard36" unique_id=718837543]
+script = ExtResource("33_aplm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Hazard36/Area2D" unique_id=1429333784]
 position = Vector2(25.5, 26)
 shape = SubResource("RectangleShape2D_lfkbx")
 
 [connection signal="frame_changed" from="Sonic/AnimatedSprite2D" to="Sonic" method="_on_sprite_frame_changed"]
-[connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Hazard2/Area2D" to="Hazard2/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard/Area2D" to="Hazards/Hazard/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard2/Area2D" to="Hazards/Hazard2/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard3/Area2D" to="Hazards/Hazard3/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard4/Area2D" to="Hazards/Hazard4/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard5/Area2D" to="Hazards/Hazard5/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard6/Area2D" to="Hazards/Hazard6/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard7/Area2D" to="Hazards/Hazard7/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard8/Area2D" to="Hazards/Hazard8/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard10/Area2D" to="Hazards/Hazard10/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard11/Area2D" to="Hazards/Hazard11/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard12/Area2D" to="Hazards/Hazard12/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard13/Area2D" to="Hazards/Hazard13/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard14/Area2D" to="Hazards/Hazard14/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard15/Area2D" to="Hazards/Hazard15/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard16/Area2D" to="Hazards/Hazard16/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard17/Area2D" to="Hazards/Hazard17/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard18/Area2D" to="Hazards/Hazard18/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard19/Area2D" to="Hazards/Hazard19/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard20/Area2D" to="Hazards/Hazard20/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard21/Area2D" to="Hazards/Hazard21/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard22/Area2D" to="Hazards/Hazard22/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard23/Area2D" to="Hazards/Hazard23/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard24/Area2D" to="Hazards/Hazard24/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard25/Area2D" to="Hazards/Hazard25/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard26/Area2D" to="Hazards/Hazard26/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard28/Area2D" to="Hazards/Hazard28/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard29/Area2D" to="Hazards/Hazard29/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard30/Area2D" to="Hazards/Hazard30/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard31/Area2D" to="Hazards/Hazard31/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard32/Area2D" to="Hazards/Hazard32/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard33/Area2D" to="Hazards/Hazard33/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard34/Area2D" to="Hazards/Hazard34/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard35/Area2D" to="Hazards/Hazard35/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazards/Hazard36/Area2D" to="Hazards/Hazard36/Area2D" method="_on_body_entered"]

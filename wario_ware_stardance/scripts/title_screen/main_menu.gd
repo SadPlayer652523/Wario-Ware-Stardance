@@ -1,7 +1,11 @@
 extends Node2D
 
 func _ready() -> void:
-	pass 
+	Global.minigames_done = 0
+	Global.buttons_pressed = 0
+	Global.lives = 5
+	Global.timer_ticking = true
+	Global.sonic_dead = false
 
 func _process(delta: float) -> void:
 	pass

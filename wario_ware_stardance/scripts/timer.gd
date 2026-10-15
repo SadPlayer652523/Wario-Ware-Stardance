@@ -22,10 +22,18 @@ func Timer(start_time: float):
 		while time > 0.0 and Global.timer_ticking: # run if timer hasnt reached 0
 			await wait(0.01)
 			time = time - 0.01
-		Global.lives -= 1
-		Global.minigames_done -= 1
+		if !Global.minigames_done == 4:
+			Global.minigames_done -= 1
+		if Global.minigames_done == 4:
+			if Global.sonic_dead:
+				Global.lives -= 1
+			else:
+				Global.minigames_done = 5
 		if Global.timer_ticking:
-			get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
+			if Global.minigames_done == 4 and !Global.sonic_dead:
+				get_tree().change_scene_to_file("res://scenes/done_screen.tscn")
+			else:
+				get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
 
 func wait(seconds: float) -> void:
 	if Global.timer_ticking:

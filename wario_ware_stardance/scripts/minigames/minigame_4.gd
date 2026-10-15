@@ -7,10 +7,9 @@ var timer_end = false
 var already_dead = false
 
 func _ready() -> void:
-	await themed_timer.Timer(10.0) #accessing a function from this node
+	await themed_timer.Timer(4.0)
 	timer_end = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if sonic.dead and !already_dead:
 		already_dead = true

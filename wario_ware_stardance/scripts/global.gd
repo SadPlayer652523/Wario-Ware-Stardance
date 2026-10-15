@@ -1,7 +1,7 @@
 extends Node
 
-var minigames_done = 3
-var lives = 1
+var minigames_done = 0
+var lives = 5
 var buttons_pressed = 0
 var timer_ticking = true
 var sonic_dead = false
